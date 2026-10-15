@@ -1,0 +1,6 @@
+{
+  "ticket_id": "NNS-1013",
+  "subject": "PDF preview is blank",
+  "body": "A small PDF uploaded to a Northstar Notes page downloads correctly, but its in-app preview is blank in two supported browsers.",
+  "account_tier": "team"
+}

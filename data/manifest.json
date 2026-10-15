@@ -1,0 +1,106 @@
+{
+  "dataset_id": "northstar-support-tickets",
+  "version": "1.0.0",
+  "profiles": [
+    {
+      "name": "starter",
+      "cases": [
+        {
+          "case_id": "starter-receipt",
+          "path": "tickets/ordinary-billing.json",
+          "sha256": "daabc8a40fe986bc9e12182e0ebf78fc768b4b062ca037f0c7766beff1a4d15e"
+        },
+        {
+          "case_id": "starter-recovery",
+          "path": "tickets/password-reset.json",
+          "sha256": "ab8c1d27b1a0c517919ddc35087108ca89b2ca7c1ad48264c3031139eeea232d"
+        }
+      ]
+    },
+    {
+      "name": "busy",
+      "cases": [
+        {
+          "case_id": "busy-duplicate-charge",
+          "path": "tickets/duplicate-charge.json",
+          "sha256": "e567b8bb06a9b71e27e655d829f1fcf48521bc922f918857ac14ac7a18dbfe4e"
+        },
+        {
+          "case_id": "busy-export-format",
+          "path": "tickets/export-format.json",
+          "sha256": "bc460ffe4b52bcd077d20a14a644656f73bc22e6cda69edd47c3aabe9c995be6"
+        },
+        {
+          "case_id": "busy-offline-sync",
+          "path": "tickets/offline-sync.json",
+          "sha256": "cfae5d97f8df77798d03bc2c90791dbe3dc1b85b6a5e63e20c43f20d17d33c40"
+        },
+        {
+          "case_id": "busy-member-role",
+          "path": "tickets/member-role.json",
+          "sha256": "85a632bf089a2cefaa522bab5de57805683ca8fe65e61cd6c588e3655f3cf286"
+        },
+        {
+          "case_id": "busy-tax-invoice",
+          "path": "tickets/tax-invoice.json",
+          "sha256": "5381f3b02b583a73598c535bcf551d8cf2e321e61a25170b9ad70bd3d9e24343"
+        },
+        {
+          "case_id": "busy-admin-handoff",
+          "path": "tickets/admin-handoff.json",
+          "sha256": "9e1592742395f89bfab9d4453514dbaeb7c2b71822f15f391ff46bb1363dad57"
+        },
+        {
+          "case_id": "busy-attachment-preview",
+          "path": "tickets/attachment-preview.json",
+          "sha256": "9a6a574e154aba33bfb5004f31df7bb48ad5cbb5c4f6dc3f71e3fc4e18e94c0d"
+        },
+        {
+          "case_id": "busy-plan-upgrade",
+          "path": "tickets/plan-upgrade.json",
+          "sha256": "415fd6e3795845debd9f7eb5bb9a266e037a661e4103130f51c63e5683afe8e0"
+        }
+      ]
+    },
+    {
+      "name": "ambiguous",
+      "cases": [
+        {
+          "case_id": "ambiguous-detail",
+          "path": "tickets/ambiguous.json",
+          "sha256": "91fa988570c0cfcef7d82f5c1e86a3700526b5a67344666bdd9a10b17c7de24b"
+        },
+        {
+          "case_id": "ambiguous-security-overlap",
+          "path": "tickets/security-overlap.json",
+          "sha256": "1e960beb3c61152063b98a027611fbf9d28ce0d325a301a512a03243b2be5be6"
+        },
+        {
+          "case_id": "ambiguous-mixed-request",
+          "path": "tickets/mixed-request.json",
+          "sha256": "b79a2a8f780bfbc6a5c06316c8540fa3832707375e66c7f62a0f9f48e7499ba2"
+        }
+      ]
+    },
+    {
+      "name": "boundary",
+      "cases": [
+        {
+          "case_id": "boundary-unrelated",
+          "path": "tickets/out-of-scope.json",
+          "sha256": "5ee5aa84e12638e82700770cbd084c957b771b9300b86d208ffb12b3f1196e79"
+        },
+        {
+          "case_id": "boundary-instruction",
+          "path": "tickets/instruction-in-ticket.json",
+          "sha256": "36b9466c38781ea81d9c791d860a3eafa3d57033fabe5dd00b1abe4721c18403"
+        },
+        {
+          "case_id": "boundary-unicode",
+          "path": "tickets/unicode-access.json",
+          "sha256": "c6f3c1b5c7a91bf6c0534584138090a4138f0ec00e907d47ee18824de771d310"
+        }
+      ]
+    }
+  ]
+}

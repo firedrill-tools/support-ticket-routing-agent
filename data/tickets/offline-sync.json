@@ -1,0 +1,6 @@
+{
+  "ticket_id": "NNS-1009",
+  "subject": "Edits remain offline on one laptop",
+  "body": "Northstar Notes saves edits on my laptop, but the desktop app still says offline after the network reconnects. The web app displays older text.",
+  "account_tier": "personal"
+}

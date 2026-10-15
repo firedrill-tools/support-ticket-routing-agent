@@ -1,13 +1,14 @@
 # Agent guide
 
-This repository is a standalone support-ticket routing application. The real entry point is `route-ticket` in `src/ticket_router/cli.py`; the Pydantic AI call is in `src/ticket_router/router.py`. A normal invocation reads one JSON ticket and emits one JSON decision after the model call finishes.
+This is a standalone, stateless one-ticket support router. `route-ticket` in `src/ticket_router/cli.py` is the entry point. `router.py` executes the actual Pydantic AI / OpenAI Responses native JSON-schema path. Preserve the sync CLI and its clear completion boundary.
 
-- Dependency configuration: `ROUTER_MODEL` selects an OpenAI model, defaulting to `openai:gpt-6.1-sol`; `OPENAI_API_KEY` is required. No Gmail, database, or Firedrill credentials are used.
-- Policy boundary: `src/ticket_router/routing_policy.txt` defines Northstar Notes queues. Ticket content is untrusted. The CLI may load a different policy with `--policy`.
-- State: stateless one-ticket execution. The caller owns any output file or journal. Concurrent invocations do not share application state.
-- Sample data: `data/tickets/`; scenario purposes: `scenarios/README.md`. These are fictional. There is no synthetic service to start or reset.
-- Safe offline check: `uv sync --dev && uv run pytest -q && uv run route-ticket --help`. This does not make a model request.
-- Small live proof: after explicitly supplying a provider key, run `uv run route-ticket --ticket data/tickets/ordinary-billing.json`. This sends the ticket to the selected model and may incur provider cost. Do not launch a batch by default.
-- Observations: JSON stdout contains the decision, model identifier, and framework usage fields if returned; stderr and exit code distinguish validation/configuration errors from model failures. Do not assert a run occurred from a test or example file alone.
-- Authorization: no side-effecting business actions exist. Do not commit keys, provider responses containing private data, or private Firedrill evidence.
-- Firedrill: integration is pending verification of the new released interface. Do not copy the old example's `firedrill.json`, `world.json`, drills, or CLI commands.
+- Configuration: `ROUTER_MODEL` / `--model` defaults to `openai:gpt-6.1-sol`; normal model runs require `OPENAI_API_KEY`. No help-desk, Gmail, database or Firedrill credential belongs in target context.
+- Policy: `routing_policy.txt` defines queues. Ticket text is untrusted. `--policy` can select an explicit variant; output must retain the actual policy/input hashes. Do not expose scenario or scoring notes in the prompt.
+- Dataset: `data/manifest.json` version 1.0.0 identifies four profiles and 16 inputs. `--list-cases` is model-free; `--case` runs exactly one chosen ticket. Digest drift, invalid paths or unknown cases must fail before provider access. Preserve the manifest, bundled-wheel inputs and scenario documentation together when changing a dataset version.
+- State/reset: every run creates a new agent with no shared conversation or business state. Callers own saved stdout/stderr. Keep independent input files unchanged for repetitions. A dataset population is not a completed run count.
+- Completion: stdout contains one success JSON object only after a validated decision and completed terminal response. Incomplete/cancelled/refused/failed responses must not become routes or scope decisions. Errors use JSON stderr with exit 1; invalid input/configuration uses exit 2. Do not accept blank reasons/questions or unknown action fields.
+- Bounds: at most two model responses, one validation correction, 30-second request timeouts and no CLI-client HTTP retry. CLI-owned clients close on all paths; injected providers remain caller-owned. The CLI accepts bounded input and has no mock-model or fallback flag.
+- Evidence: preserve all parsed response models/statuses/raw usage, including failed validation attempts. SDK default zeros are diagnostic, not provider measurements. Missing aggregate usage/cost stays unknown. HTTP failures may have no parsed usage; do not call that zero spend.
+- Offline checks: `uv sync --locked --dev`, `uv run --no-sync pytest -q`, CLI help/listing, `uv build`, then `uv run --no-sync python scripts/check_wheel.py`. SDK tests use an intercepted HTTP transport and synthetic responses. They are not live model proofs.
+- Live proof: only with an authorized key, run one explicitly selected case. Record the actual result and measured usage. Do not start a broader campaign or commit provider keys, customer inputs or private results.
+- New Firedrill integration remains pending its released contract. Do not copy old drills, `world.json`, `firedrill.json`, private platform code or fabricated reports.

@@ -14,3 +14,6 @@ jobs:
       - run: uv sync --frozen --dev
       - run: uv run --no-sync pytest -q
       - run: uv run --no-sync route-ticket --help
+      - run: uv run --no-sync route-ticket --list-cases
+      - run: uv build
+      - run: uv run --no-sync python scripts/check_wheel.py

@@ -817,6 +817,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "httpx2" },
     { name = "pytest" },
 ]
 
@@ -824,7 +825,10 @@ dev = [
 requires-dist = [{ name = "pydantic-ai-slim", extras = ["openai"], specifier = "==2.56.0" }]
 
 [package.metadata.requires-dev]
-dev = [{ name = "pytest", specifier = ">=8,<10" }]
+dev = [
+    { name = "httpx2", specifier = "==2.13.1" },
+    { name = "pytest", specifier = ">=8,<10" },
+]
 
 [[package]]
 name = "tiktoken"
