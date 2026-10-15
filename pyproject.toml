@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "support-ticket-routing-agent"
+version = "0.1.0"
+description = "A model-backed support ticket router with explicit clarification and scope decisions"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["pydantic-ai-slim[openai]==2.56.0"]
+
+[project.scripts]
+route-ticket = "ticket_router.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ticket_router"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
