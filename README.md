@@ -41,3 +41,5 @@ The new Firedrill integration has **not** been implemented or verified. The inte
 This is a routing assistant, not an automated help desk. It cannot confirm account facts or execute business actions. The policy is a local text file, and the example data is fictional. The package is currently local and unlicensed pending the portfolio's publication decision. See `AGENTS.md` for the execution and evidence boundaries.
 
 Framework reference: [Pydantic AI agent documentation](https://pydantic.dev/docs/ai/core-concepts/agent/). Model identifier and Responses support: [official OpenAI GPT-6.1 Sol documentation](https://developers.openai.com/api/docs/models/gpt-6.1-sol).
+
+Explore related applications in the [Firedrill example catalog](https://github.com/firedrill-tools/firedrill-example-catalog). Product and setup references: [Firedrill](https://firedrill.run/) and the [official developer documentation](https://docs.firedrill.run/). Use documentation matching the qualified release; this repository records its current integration limits above.
