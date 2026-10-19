@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "2026-10-14",
+  "name": "Support ticket routing — actual application",
+  "target": { "kind": "command", "argv": ["node", "firedrill/target.mjs"] },
+  "scenarios": [
+    { "id": "ordinary-routing", "name": "Ordinary billing ticket", "input": { "caseId": "starter-receipt" } },
+    { "id": "missing-details", "name": "Ambiguous support request", "input": { "caseId": "ambiguous-detail" } }
+  ],
+  "repetitions": 1,
+  "concurrency": 1,
+  "limits": { "timeoutMs": 180000, "maxRuns": 2, "maxOutputBytes": 4194304 }
+}

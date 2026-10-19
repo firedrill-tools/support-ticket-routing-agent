@@ -58,7 +58,7 @@ The 44 checks exercise the actual Pydantic AI and OpenAI Responses adapters with
 
 ## Firedrill and publication
 
-The new Firedrill interface has not been qualified. The intended seam is the existing one-ticket CLI, immutable input/policy hashes, dataset identity, JSON completion/error output and independent invocations. Connect it only to the released interface and preserve real evidence. The older Gmail example uses a retired interface. No Firedrill report or execution is claimed here.
+The [agent-first integration](firedrill/README.md) pins the released Firedrill CLI and TypeScript SDK to 2.2.2 in a separate optional toolchain. Its command adapter invokes this existing one-ticket CLI with immutable dataset cases and preserves actual JSON output and failures. The recipe is structurally validated offline; authenticated persisted Firedrill execution and live model quality remain pending. The older Gmail example uses a retired interface.
 
 Live OpenAI proof, publication and license choices remain parked external gates. This repository stays private and unlicensed pending those decisions. See [AGENTS.md](AGENTS.md) for execution boundaries.
 
