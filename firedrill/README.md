@@ -13,7 +13,7 @@ firedrill_cli=firedrill/node_modules/@firedrill-run/cli/bin/firedrill.mjs
 node "$firedrill_cli" validate firedrill/scenario.json --json --non-interactive
 ```
 
-Validation is offline and allocates no batch. The tests exercise the real CLI's missing-key failure, adapter subprocess lifecycle, current invocation format and released recipe validator. These checks do not establish authenticated persistence or model quality.
+Validation is offline and allocates no batch. The tests exercise the real CLI's missing-key failure, adapter subprocess lifecycle, current invocation format and released recipe validator. Actual adapter-to-CLI-to-provider-SDK tests also retain completed and unfinished responses over owned loopback HTTP. Those responses and usage are synthetic; these checks do not establish authenticated persistence, paid provider usage or model quality.
 
 ## Select scope and run deliberately
 

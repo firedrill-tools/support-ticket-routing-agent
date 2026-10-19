@@ -4,7 +4,7 @@
   "type": "module",
   "engines": { "node": ">=22" },
   "scripts": {
-    "test": "node --test adapter.test.mjs",
+    "test": "node --test *.test.mjs",
     "validate": "firedrill validate scenario.json --json --non-interactive",
     "simulate": "node simulate.mjs"
   },
