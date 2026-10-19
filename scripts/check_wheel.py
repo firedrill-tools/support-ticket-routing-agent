@@ -4,8 +4,16 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+import tarfile
 from tempfile import TemporaryDirectory
 from zipfile import ZipFile
+
+sdist, = Path("dist").glob("*.tar.gz")
+with tarfile.open(sdist) as archive:
+    names = archive.getnames()
+    assert any(name.endswith("/firedrill/scenario.json") for name in names)
+    assert any(name.endswith("/firedrill/package-lock.json") for name in names)
+    assert not any("/node_modules/" in name or "/.runs/" in name for name in names)
 
 wheel, = Path("dist").glob("*.whl")
 with ZipFile(wheel) as archive:
