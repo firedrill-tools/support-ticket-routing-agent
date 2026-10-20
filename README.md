@@ -1,6 +1,20 @@
-# Route support tickets with Pydantic AI and GPT-6.1 Sol
+# Support ticket routing agent with Pydantic AI and OpenAI
 
 A standalone command-line application routes fictional Northstar Notes support tickets to billing, account, product or security. It can ask for clarification or mark an unrelated request out of scope. It uses **Pydantic AI 2.56.0**, **OpenAI Python 3.31.0** and the Responses API's native structured output. It cannot send messages, change accounts, issue refunds or connect to a help desk.
+
+## Simulate with Firedrill
+
+[Firedrill](https://firedrill.run/) is a simulation platform for AI agents.
+Start from this repository’s root:
+
+```sh
+npx firedrill-run init
+```
+
+Sign in and choose your project, then follow the [simulation run guide](firedrill/README.md)
+for application dependencies, a preview and the reviewed scenarios. Your agent runs
+locally or in your CI; model credentials stay separate from Firedrill sign-in.
+The included recipes record outcomes without an automatic quality score or CI gate.
 
 ## Run one ticket
 
@@ -58,7 +72,7 @@ The 44 checks exercise the actual Pydantic AI and OpenAI Responses adapters with
 
 ## Firedrill and publication
 
-The [agent-first integration](firedrill/README.md) pins the released Firedrill CLI and TypeScript SDK to 2.2.2 in a separate optional toolchain. Its command adapter invokes this existing one-ticket CLI with immutable dataset cases and preserves actual JSON output and failures. The recipe is structurally validated offline; authenticated persisted Firedrill execution and live model quality remain pending. The older Gmail example uses a retired interface.
+The [agent-first integration](firedrill/README.md) pins the released Firedrill CLI and TypeScript SDK to 2.2.2 in a separate optional toolchain. Its command adapter invokes this existing one-ticket CLI with immutable dataset cases and preserves actual JSON output and failures. The recipe is structurally validated offline; authenticated persisted Firedrill execution and live model quality remain pending.
 
 Live OpenAI proof, publication and license choices remain parked external gates. This repository stays private and unlicensed pending those decisions. See [AGENTS.md](AGENTS.md) for execution boundaries.
 

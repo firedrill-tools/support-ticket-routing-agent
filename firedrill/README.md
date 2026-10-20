@@ -1,4 +1,18 @@
-# Firedrill agent-first integration
+# Simulate this agent with Firedrill
+
+Firedrill is a simulation platform for AI agents. Your coding agent can prepare
+and operate these simulations; the application and its model run in your own
+repository or CI.
+
+Start in the repository root, not inside `firedrill/`:
+
+```sh
+npx firedrill-run init
+```
+
+Authorize Firedrill and select a project/environment. Installation choices are
+optional; skip them when using the locked `firedrill/` toolchain below. This setup
+does not invoke the target agent or grant it access to real business accounts.
 
 Verified package release: **2.2.2**, October 19, 2026. The CLI and TypeScript SDK are exact-pinned with a separate npm lockfile. This optional execution toolchain requires Node 22+ and does not change the Python application's model dependencies. Python-only native integrations may instead use the official `firedrill-run` SDK; this repository uses the documented command target.
 
@@ -8,7 +22,6 @@ From the repository root, install the application with `uv sync --locked --dev`.
 
 ```sh
 npm ci --prefix firedrill --ignore-scripts --no-audit --no-fund
-npm test --prefix firedrill
 firedrill_cli=firedrill/node_modules/@firedrill-run/cli/bin/firedrill.mjs
 node "$firedrill_cli" validate firedrill/scenario.json --json --non-interactive
 ```
@@ -17,7 +30,7 @@ Validation is offline and allocates no batch. The tests exercise the real CLI's 
 
 ## Select scope and run deliberately
 
-Run `node "$firedrill_cli" init` in a human terminal to sign in and select the actual project/environment. Init writes public selection to `firedrill.config.json`. Automation instead supplies `FIREDRILL_TOKEN`, `FIREDRILL_PROJECT_ID` and `FIREDRILL_ENVIRONMENT_ID` through its secret store. Conflicting scope is an error. Operator authority and the application's `OPENAI_API_KEY` are separate; the adapter removes Firedrill and CI identity variables before launching the application.
+Run `npx firedrill-run init` in a human terminal to sign in and select the actual project/environment. Init writes public selection to `firedrill.config.json`. Automation instead supplies `FIREDRILL_TOKEN`, `FIREDRILL_PROJECT_ID` and `FIREDRILL_ENVIRONMENT_ID` through its secret store. Conflicting scope is an error. Operator authority and the application's `OPENAI_API_KEY` are separate; the adapter removes Firedrill and CI identity variables before launching the application.
 
 With provider access and a deliberate call budget:
 
@@ -39,3 +52,11 @@ Preserve the SDK's operation ID and private journal after interruption. Use `nod
 For opt-in live CI, use the released [CI generator](https://docs.firedrill.run/guides/ci) after selecting actual scope and a protected environment. Existing CI runs offline checks only. No paid campaign, real connector action, authenticated report, public release or license decision is implied by this integration.
 
 References: [SDK](https://docs.firedrill.run/sdk/typescript), [command adapters](https://docs.firedrill.run/guides/run-first-drill), [CLI](https://docs.firedrill.run/cli/overview), [operator MCP](https://docs.firedrill.run/guides/control-mcp).
+
+## Offline verification
+
+After installing the application dependencies and locked integration toolchain,
+run `npm test --prefix firedrill` to exercise the adapter checks. These checks are
+optional for first use and call no paid model. The Node 22+ requirement above is
+for the Firedrill clients; it does not lower any application runtime requirement
+in the root README.
