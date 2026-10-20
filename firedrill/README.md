@@ -49,7 +49,7 @@ Connect your coding agent to the remote OAuth endpoint **https://mcp.firedrill.r
 
 Preserve the SDK's operation ID and private journal after interruption. Use `node firedrill/simulate.mjs --resume OPERATION_ID` for that exact execution, or `--result BATCH_ID` to read retained evidence. Do not start another simulation to repair a missing acknowledgement. SDK diagnostics retain uncertainty and repair information, and runner exit codes propagate pending execution/assessment and gates. Execution completion is distinct from correctness; this recipe requests no grading or gate.
 
-For opt-in live CI, use the released [CI generator](https://docs.firedrill.run/guides/ci) after selecting actual scope and a protected environment. Existing CI runs offline checks only. No paid campaign, real connector action, authenticated report, public release or license decision is implied by this integration.
+For opt-in live CI, use the released [CI generator](https://docs.firedrill.run/guides/ci) after selecting actual scope and a protected environment. Existing CI runs offline checks only. No paid campaign, real connector action, authenticated report, package publication or license decision is implied by this integration.
 
 References: [SDK](https://docs.firedrill.run/sdk/typescript), [command adapters](https://docs.firedrill.run/guides/run-first-drill), [CLI](https://docs.firedrill.run/cli/overview), [operator MCP](https://docs.firedrill.run/guides/control-mcp).
 

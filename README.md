@@ -2,6 +2,8 @@
 
 A standalone command-line application routes fictional Northstar Notes support tickets to billing, account, product or security. It can ask for clarification or mark an unrelated request out of scope. It uses **Pydantic AI 2.56.0**, **OpenAI Python 3.31.0** and the Responses API's native structured output. It cannot send messages, change accounts, issue refunds or connect to a help desk.
 
+This example repository is publicly viewable. A project license has not been selected.
+
 ## Simulate with Firedrill
 
 [Firedrill](https://firedrill.run/) is a simulation platform for AI agents.
@@ -74,7 +76,7 @@ The 44 checks exercise the actual Pydantic AI and OpenAI Responses adapters with
 
 The [agent-first integration](firedrill/README.md) pins the released Firedrill CLI and TypeScript SDK to 2.2.2 in a separate optional toolchain. Its command adapter invokes this existing one-ticket CLI with immutable dataset cases and preserves actual JSON output and failures. The recipe is structurally validated offline; authenticated persisted Firedrill execution and live model quality remain pending.
 
-Live OpenAI proof, publication and license choices remain parked external gates. This repository stays private and unlicensed pending those decisions. See [AGENTS.md](AGENTS.md) for execution boundaries.
+Live OpenAI proof and license choices remain parked external gates. This repository is publicly viewable; no project license has been selected. See [AGENTS.md](AGENTS.md) for execution boundaries.
 
 References: [Pydantic AI OpenAI adapters](https://pydantic.dev/docs/ai/models/openai/), [OpenAI structured-output completion and refusal handling](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses), and [official model documentation](https://developers.openai.com/api/docs/models/gpt-6.1-sol).
 
