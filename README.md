@@ -80,4 +80,4 @@ Live OpenAI proof and license choices remain parked external gates. This reposit
 
 References: [Pydantic AI OpenAI adapters](https://pydantic.dev/docs/ai/models/openai/), [OpenAI structured-output completion and refusal handling](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses), and [official model documentation](https://developers.openai.com/api/docs/models/gpt-6.1-sol).
 
-Explore related applications in the [Firedrill example catalog](https://github.com/firedrill-tools/firedrill-example-catalog). Product and setup references: [Firedrill](https://firedrill.run/) and the [official developer documentation](https://docs.firedrill.run/). Use documentation matching the qualified release.
+Explore related applications in the [Firedrill examples](https://docs.firedrill.run/guides/examples). Product and setup references: [Firedrill](https://firedrill.run/) and the [official developer documentation](https://docs.firedrill.run/). Use documentation matching the qualified release.
